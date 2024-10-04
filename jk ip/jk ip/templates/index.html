@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Report Uploader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .upload-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .upload-form label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .upload-form input[type="file"] {
+            margin-bottom: 20px;
+        }
+        .upload-form button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .upload-form button:hover {
+            background-color: #218838;
+        }
+        .results {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .results li {
+            margin: 5px 0;
+        }
+        .results span {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function uploadReport(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.getElementById('reportFile');
+            formData.append('report', fileInput.files[0]);
+
+            // Perform the file upload using fetch
+            fetch('/upload_report', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Extracted data:', data);
+                // Update the results section with the extracted feature values
+                document.getElementById('concave_points_worst').textContent = data.concave_points_worst || 0;
+                document.getElementById('perimeter_worst').textContent = data.perimeter_worst || 0;
+                document.getElementById('concave_points_mean').textContent = data.concave_points_mean || 0;
+                document.getElementById('radius_worst').textContent = data.radius_worst || 0;
+                document.getElementById('perimeter_mean').textContent = data.perimeter_mean || 0;
+                document.getElementById('area_worst').textContent = data.area_worst || 0;
+                document.getElementById('radius_mean').textContent = data.radius_mean || 0;
+                document.getElementById('area_mean').textContent = data.area_mean || 0;
+                document.getElementById('concavity_mean').textContent = data.concavity_mean || 0;
+                document.getElementById('concavity_worst').textContent = data.concavity_worst || 0;
+                document.getElementById('compactness_mean').textContent = data.compactness_mean || 0;
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Cancer Report Uploader</h1>
+
+    <form class="upload-form" onsubmit="uploadReport(event)">
+        <label for="reportFile">Upload Cancer Report (Image/PDF):</label>
+        <input type="file" id="reportFile" name="report" accept=".jpg,.jpeg,.png,.pdf" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="results">
+        <h2>Extracted Features</h2>
+        <ul>
+            <li>Concave Points (Worst): <span id="concave_points_worst">0</span></li>
+            <li>Perimeter (Worst): <span id="perimeter_worst">0</span></li>
+            <li>Concave Points (Mean): <span id="concave_points_mean">0</span></li>
+            <li>Radius (Worst): <span id="radius_worst">0</span></li>
+            <li>Perimeter (Mean): <span id="perimeter_mean">0</span></li>
+            <li>Area (Worst): <span id="area_worst">0</span></li>
+            <li>Radius (Mean): <span id="radius_mean">0</span></li>
+            <li>Area (Mean): <span id="area_mean">0</span></li>
+            <li>Concavity (Mean): <span id="concavity_mean">0</span></li>
+            <li>Concavity (Worst): <span id="concavity_worst">0</span></li>
+            <li>Compactness (Mean): <span id="compactness_mean">0</span></li>
+        </ul>
+    </div>
+
+</body>
+</html>
