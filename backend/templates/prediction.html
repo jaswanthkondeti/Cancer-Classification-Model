@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cancer Prediction Application</title>
+    <link rel="stylesheet" href="static/prediction.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">CANCER CLASSIFICATION<br />MODEL</div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="border-container">
+        <div class="border-values">
+          <h2 class="border-title">Tumor Cell Border Values</h2>
+          <div class="benign-tumor">
+            <h3>Benign Tumor</h3>
+            <ul>
+              <li>Concave Points Worst: [value]</li>
+              <li>Perimeter Worst: [value]</li>
+              <li>Concave Points Mean: [value]</li>
+              <li>Radius Worst: [value]</li>
+              <li>Perimeter Mean: [value]</li>
+              <li>Area Worst: [value]</li>
+              <li>Radius Mean: [value]</li>
+              <li>Area Mean: [value]</li>
+              <li>Concavity Mean: [value]</li>
+              <li>Concavity Worst: [value]</li>
+              <li>Compactness Mean: [value]</li>
+            </ul>
+          </div>
+          <div class="malignant-tumor">
+            <h3>Malignant Tumor</h3>
+            <ul>
+              <li>Concave Points Worst: [value]</li>
+              <li>Perimeter Worst: [value]</li>
+              <li>Concave Points Mean: [value]</li>
+              <li>Radius Worst: [value]</li>
+              <li>Perimeter Mean: [value]</li>
+              <li>Area Worst: [value]</li>
+              <li>Radius Mean: [value]</li>
+              <li>Area Mean: [value]</li>
+              <li>Concavity Mean: [value]</li>
+              <li>Concavity Worst: [value]</li>
+              <li>Compactness Mean: [value]</li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="form" id="predictionForm">
+          <h1>Enter you details here</h1>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="concave_points_worst" class="form-label"
+                >Concave Points Worst</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="concave_points_worst"
+                name="concave_points_worst"
+                placeholder="Enter Concave Points Worst"
+              />
+            </div>
+            <div class="form-group">
+              <label for="perimeter_worst" class="form-label"
+                >Perimeter Worst</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="perimeter_worst"
+                name="perimeter_worst"
+                placeholder="Enter Perimeter Worst"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="concave_points_mean" class="form-label"
+                >Concave Points Mean</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="concave_points_mean"
+                name="concave_points_mean"
+                placeholder="Enter Concave Points Mean"
+              />
+            </div>
+            <div class="form-group">
+              <label for="radius_worst" class="form-label">Radius Worst</label>
+              <input
+                type="text"
+                class="form-input"
+                id="radius_worst"
+                name="radius_worst"
+                placeholder="Enter Radius Worst"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="perimeter_mean" class="form-label"
+                >Perimeter Mean</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="perimeter_mean"
+                name="perimeter_mean"
+                placeholder="Enter Perimeter Mean"
+              />
+            </div>
+            <div class="form-group">
+              <label for="area_worst" class="form-label">Area Worst</label>
+              <input
+                type="text"
+                class="form-input"
+                id="area_worst"
+                name="area_worst"
+                placeholder="Enter Area Worst"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="radius_mean" class="form-label">Radius Mean</label>
+              <input
+                type="text"
+                class="form-input"
+                id="radius_mean"
+                name="radius_mean"
+                placeholder="Enter Radius Mean"
+              />
+            </div>
+            <div class="form-group">
+              <label for="area_mean" class="form-label">Area Mean</label>
+              <input
+                type="text"
+                class="form-input"
+                id="area_mean"
+                name="area_mean"
+                placeholder="Enter Area Mean"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="concavity_mean" class="form-label"
+                >Concavity Mean</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="concavity_mean"
+                name="concavity_mean"
+                placeholder="Enter Concavity Mean"
+              />
+            </div>
+            <div class="form-group">
+              <label for="concavity_worst" class="form-label"
+                >Concavity Worst</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="concavity_worst"
+                name="concavity_worst"
+                placeholder="Enter Concavity Worst"
+              />
+            </div>
+          </div>
+
+          <div class="form-row last-row">
+            <div class="form-group full-width">
+              <label for="compactness_mean" class="form-label"
+                >Compactness Mean</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="compactness_mean"
+                name="compactness_mean"
+                placeholder="Enter Compactness Mean"
+              />
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button
+              type="button"
+              onclick="window.location.href='upload.html'"
+              class="upload-button"
+            >
+              Upload File
+            </button>
+            <button type="submit" class="submit-button">Predict</button>
+          </div>
+        </form>
+      </div>
+
+      <h2 class="prediction-result" id="predictionResult"></h2>
+    </div>
+
+    <script>
+      const form = document.getElementById("predictionForm");
+      const resultDiv = document.getElementById("predictionResult");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const jsonData = {};
+        formData.forEach((value, key) => (jsonData[key] = value));
+
+        try {
+          const response = await fetch("http://127.0.0.1:5000/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jsonData),
+          });
+
+          const data = await response.json();
+          resultDiv.innerHTML = `The tumor is predicted to be: ${data.prediction}`;
+        } catch (error) {
+          console.error("There was an error!", error);
+          resultDiv.innerHTML = "Error in prediction.";
+        }
+      });
+    </script>
+  </body>
+</html>

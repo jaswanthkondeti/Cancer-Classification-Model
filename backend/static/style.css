@@ -1,0 +1,172 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: white; /* Text color is now white for better visibility */
+
+  /* Background image applied to the entire body */
+  background-image: url("images/dna-image.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  position: relative; /* Ensures the image stays in place when scrolling */
+}
+
+/* Adding a dark overlay to the entire page */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% opacity */
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: relative;
+  z-index: 2; /* Ensures the nav content is above the overlay */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e0e0e0;
+}
+
+.signup-button {
+  padding: 10px 20px;
+  border: 2px solid white;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.signup-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.hero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px;
+  height: calc(100vh - 55px); /* Adjust the height of the hero section */
+  position: relative;
+  z-index: 2;
+}
+
+.text-content {
+  position: relative;
+  z-index: 2; /* Ensures the text appears above the overlay */
+  max-width: 55%;
+  color: white;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #7fa1c3;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  border: 2px solid white;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.details {
+  padding: 50px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* A semi-transparent background for the details section */
+  color: #333;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-item {
+  margin-bottom: 30px;
+}
+
+.detail-item h3 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.detail-item h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+footer {
+  padding: 20px;
+  padding-top: 30px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border-top: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 2;
+}

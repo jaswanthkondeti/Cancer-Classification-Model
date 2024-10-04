@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - Cancer Classification Model</title>
+    <link rel="stylesheet" href="static/signup.css" />
+  </head>
+  <body>
+    <div class="signup-page">
+      <header>
+        <nav>
+          <div class="logo">
+            CANCER CLASSIFICATION<br />
+            MODEL
+          </div>
+          <a href="/login"><button class="login-button">Login</button></a>
+        </nav>
+      </header>
+
+      <section class="signup-section">
+        <div class="left-content">
+          <h2>Welcome to CCM</h2>
+          <p class="welcome-note">
+            Welcome to the Cancer Classification Model. Our system provides
+            detailed diagnostics of cancer cells to aid in health monitoring and
+            future planning.
+          </p>
+          <div>
+            <p class="about-section">
+              At CCM, we use advanced machine learning models to classify and
+              analyze cancer cells. Our platform is designed to provide doctors
+              and patients with accurate diagnostics, making cancer detection
+              and treatment more efficient.
+            </p>
+            <p class="about-section">
+              Health is the most important thing. So don’t put it off for later.
+              Think about your future today.
+            </p>
+            <p class="visit">Visit our webiste today!</p>
+          </div>
+        </div>
+
+        <div class="right-content">
+          <h1>Create your account</h1>
+          <form class="signup-form" method="post" action="/signup">
+            <input
+              type="text"
+              name="full_name"
+              placeholder="Full Name"
+              required
+            />
+            <input type="email" name="email" placeholder="Email" required />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required
+            />
+            <button class="signup-button">Sign Up</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
